@@ -70,15 +70,6 @@ class InformationBasedSolver(object, metaclass=abc.ABCMeta):
                 del word_information[g]
         
         return guesses
-    
-
-    def _parse_feedback_string(self, feedback_str):
-        lower_str = feedback_str.lower()
-        if feedback_str != len(5):
-            ValueError('Feedback string must be exactly five characters')
-        if lower_str != len(5):
-            raise ValueError('Feedback string must only contain the following characters: "G"')
-
 
     def filter_on_assessment(self, guessed_word, assessment):
         """
@@ -100,15 +91,6 @@ class InformationTheorySolver(InformationBasedSolver):
         """Returns guess containing most information"""
         return max(word_information, key=word_information.get)
 
-
-class HeuristicSolver(InformationBasedSolver):
-    def __init__(self, vocab, word_frequencies, pattern_path=None, information_path=None) -> None:
-        super().__init__(vocab, pattern_path, information_path)
-        self.word_frequencies = word_frequencies
-
-    def get_guess(self, word_information):
-        pass
-
 def load_vocab_file(path):
     with open(path, 'r', encoding='UTF-8') as file:
         vocab = [w.strip() for w in file.readlines()]
@@ -119,6 +101,7 @@ def main():
     random.seed=42
 
     # Wordle lists were taken from Alex Selby (https://github.com/alex1770)
+    # Who, in turn, took them from the NYT front-end
     official_words_path = 'official_words.txt'
     hidden_words_path = 'hidden_words.txt'
     
