@@ -1,6 +1,4 @@
 import pickle
-import numpy as np
-import pandas as pd
 from wordle_color import WordleColor
 from puzzle import Puzzle
 from assess_solver import AssessSolver
@@ -111,31 +109,10 @@ class HeuristicSolver(InformationBasedSolver):
     def get_guess(self, word_information):
         pass
 
-def get_frequencies(frequencies, vocab):
-    """Computes log-scaled min-maxed frequencies for words in vocab"""
-    frequencies = frequencies.loc[frequencies['word'].str.len() == 5] \
-        .set_index('word')
-
-    vocab = pd.DataFrame(vocab, columns=['word']).set_index('word')
-    min_freq = frequencies['count'].min()
-
-    # Assume missing counts are lowest possible frequency
-    counts_and_info = vocab.join(frequencies) \
-        .fillna({'count': min_freq})
-
-    # High skew - log scale to preserve ordering. Then minmax scale
-    counts_and_info['log_count'] = np.log2(counts_and_info['count'])
-    min_log_freq = counts_and_info['log_count'].min()
-    max_log_freq = counts_and_info['log_count'].max()
-    counts_and_info['minmax_log_count'] = (counts_and_info['log_count'] - min_log_freq) \
-        / (max_log_freq - min_log_freq)
-    return dict(zip(counts_and_info.index, counts_and_info['minmax_log_count']))
-
 def load_vocab_file(path):
     with open(path, 'r', encoding='UTF-8') as file:
         vocab = [w.strip() for w in file.readlines()]
     return vocab
-
 
 def main():
     # Reset random seed
@@ -147,9 +124,6 @@ def main():
     
     pattern_frequencies_path = 'pattern_frequencies_all_words_hidden_words.pkl'
     information_path='information_all_words_hidden_words.pkl'
-
-    # Word frequencies were taken from Kaggle: https://www.kaggle.com/datasets/rtatman/english-word-frequency
-    frequencies = pd.read_csv('unigram_freq.csv')
     
     all_vocab = load_vocab_file(official_words_path)
     potential_hidden_words = load_vocab_file(hidden_words_path)
