@@ -1,10 +1,9 @@
 import pickle
-from wordle_color import WordleColor
-from puzzle import Puzzle
-from assess_solver import AssessSolver
+from solver.wordle_color import WordleColor
+from solver.assess_solver import AssessSolver
 import random
 import abc
-import information
+import solver.information as information
 
 
 class InformationBasedSolver(object, metaclass=abc.ABCMeta):

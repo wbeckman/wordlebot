@@ -1,12 +1,12 @@
-import solver
-from wordle_color import WordleColor
+from solver.puzzle import Puzzle
+from solver.wordle_color import WordleColor
 
 
 def test_assess():
     """Test basic functionality of assess on no special case"""
     candidate_word = 'wings'
     expected = [WordleColor.GREEN, WordleColor.YELLOW, WordleColor.BLACK, WordleColor.BLACK, WordleColor.YELLOW]
-    puzzle = solver.Puzzle('waist')
+    puzzle = Puzzle('waist')
     assert puzzle.assess(candidate_word) == expected
 
 def test_assess_multiple_letters_hidden():
@@ -18,7 +18,7 @@ def test_assess_multiple_letters_hidden():
     expected = [
         WordleColor.BLACK, WordleColor.YELLOW, WordleColor.YELLOW, WordleColor.BLACK, WordleColor.BLACK
     ]
-    puzzle = solver.Puzzle('panda')
+    puzzle = Puzzle('panda')
     assert puzzle.assess(candidate_word) == expected
 
 def test_assess_multiple_letters_candidate():
@@ -27,7 +27,7 @@ def test_assess_multiple_letters_candidate():
     In this case, the first 'a' should be green/yellow and the second should be BLACK.
     """
     candidate_word = 'panda'
-    puzzle = solver.Puzzle('spark')
+    puzzle = Puzzle('spark')
     expected = [
         WordleColor.YELLOW, WordleColor.YELLOW, WordleColor.BLACK, WordleColor.BLACK, WordleColor.BLACK
     ]
@@ -38,7 +38,7 @@ def test_assess_green_priority():
     There is one 'a', but in this case, the green 'a' has precedence over the yellow 'a'
     """
     candidate_word = 'panda'
-    puzzle = solver.Puzzle('sigma')
+    puzzle = Puzzle('sigma')
     expected = [
         WordleColor.BLACK, WordleColor.BLACK, WordleColor.BLACK, WordleColor.BLACK, WordleColor.GREEN
     ]

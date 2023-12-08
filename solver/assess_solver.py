@@ -1,4 +1,4 @@
-from puzzle import Puzzle
+from solver.puzzle import Puzzle
 
 class AssessSolver:
     def __init__(self, vocab) -> None:

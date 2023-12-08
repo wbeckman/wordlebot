@@ -1,5 +1,5 @@
 import random 
-from wordle_color import WordleColor
+from solver.wordle_color import WordleColor
 
 class Puzzle:
     """

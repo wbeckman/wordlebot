@@ -1,6 +1,6 @@
 import pytest
-import information
-from wordle_color import WordleColor
+import solver.information as information
+from solver.wordle_color import WordleColor
 
 
 @pytest.fixture

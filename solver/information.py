@@ -1,7 +1,6 @@
 import math
 import pickle
-from collections import defaultdict
-from puzzle import Puzzle
+from solver.puzzle import Puzzle
 
 
 def compute_pattern_frequencies(original_vocab, subset_vocab, path=None):
