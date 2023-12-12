@@ -99,7 +99,7 @@ def solve():
     }
 
     print('\nYour first guess to maximize the amount of information you gain on average '\
-          'should always be \'TARES\'.\nHowever, you\'re free to guess whatever you want. \n\n' \
+          'should always be \'TARSE\'.\nHowever, you\'re free to guess whatever you want. \n\n' \
           'Give me your guess and the feedback you received, and I ' \
           'can tell you what to guess next to minimize your number of guesses, on average.\n')
     
