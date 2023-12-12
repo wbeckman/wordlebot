@@ -40,10 +40,12 @@ The bot tells you how to play, but in case you're curious, I will paste an examp
 
 (Press CTRL+C to exit at any time)
 
-Your first guess to maximize the amount of information you gain on average should always be 'TARSE'.
+Your first guess to maximize the amount of information you gain on average should
+always be 'TARSE'.
 However, you're free to guess whatever you want.
 
-Give me your guess and the feedback you received, and I can tell you what to guess next to minimize your number of guesses, on average.
+Give me your guess and the feedback you received, and I can tell you what to guess
+next to minimize your number of guesses, on average.
 
 
 **********GUESS 1**********
