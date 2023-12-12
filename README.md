@@ -1,8 +1,9 @@
+```
  __      __ ___   ___  ___   _     ___  ___   ___  _____
  \ \    / // _ \ | _ \|   \ | |   | __|| _ ) / _ \|_   _|
   \ \/\/ /| (_) ||   /| |) || |__ | _| | _ \| (_) | | |
    \_/\_/  \___/ |_|_\|___/ |____||___||___/ \___/  |_|
-
+```
 
 Welcome to the repo for `wordlebot` - my wordle-playing bot that relies on the concept of entropy to solve New York Times Wordle puzzles. If you want a breakdown of how it works, I wrote a [blog post](https://willbeckman.com/wordle.html) on that.
 
